@@ -1,0 +1,32 @@
+﻿@model EmploymentModel
+@{
+    ViewData["Title"] = "Employment";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+    <form asp-controller="Admin" asp-action="Employment" method="post">
+        <div class="text-danger" asp-validation-summary="All"></div>
+
+        <div class="form-group">
+            <label asp-for="EmploymentNames"></label>
+            <input asp-for="EmploymentNames" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="EmploymentDescription"></label>
+            <input asp-for="EmploymentDescription" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="EmploymentDate"></label>
+            <input asp-for="EmploymentDate" type="date" asp-format="{0:yyyy-MM-dd} class="form-control" />
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="save"/>
+
+    </form>
+
+2) işe giriş cıkıs tarihi yap
+3) check box koy  cıkısı disable yap hala calısıyor gorunsun
+
+

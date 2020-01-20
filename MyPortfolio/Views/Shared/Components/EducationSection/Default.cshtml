@@ -1,0 +1,32 @@
+﻿@model IEnumerable<EducationContextModel>
+@{
+    ViewData["Title"] = "Default";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model != null)
+{
+    <section id="resume2" class="container ">
+        <div class="row">
+            <div class="col-md-8 section__resume resume-list">
+                <h3 class="resume-list_title">education</h3>
+
+                @foreach (var item in Model)
+                {
+                    <div class="resume-list__block">
+                        <p class="resume-list__block-title">@item.GraduateSchoolName </p>
+                        <p class="resume-list__block-date">@item.GraduateDate</p>
+                        <p>
+                            @item.GraduateDepartment
+                        </p>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </section>
+}
+else
+{
+    <div class="text-danger"><h3 style="text-align:center">DB connection Fail Or Data's is Null</h3></div>
+}

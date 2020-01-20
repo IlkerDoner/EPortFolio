@@ -1,0 +1,96 @@
+﻿@model IEnumerable<MyProjectModel>
+@{
+    ViewData["Title"] = "Default";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model != null)
+{
+    <section id="portfolio" class="container section">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 id="portfolio_header" class="section__title">My projects_</h2>
+            </div>
+        </div>
+        @*<div class="row portfolio-menu">
+                <div class="col-md-12">
+                    <nav>
+                        <ul>
+                            <li><a href="asp-controller asp action" data-portfolio-target-tag="all">all</a></li>
+                            <li><a href="#" data-portfolio-target-tag="mobile apps">mobile apps</a></li>
+                            <li><a href="#" data-portfolio-target-tag="web-sites">web-sites</a></li>
+                            <li><a href="#" data-portfolio-target-tag="landing-pages">landing pages</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>*@
+        @foreach (var item in Model)
+        {
+            <div class="portfolio-cards">
+                <div class="row project-card">
+                    <div class="col-md-6 col-lg-5 project-card__img">
+                        <img class="" src="/images/projectImages/@item.MyProjectImages" alt="project-img">
+                    </div>
+                    <div class="col-md-6 col-lg-7 project-card__info">
+                        <h3 class="project-card__title">@item.MyProjectHeader </h3>
+                        <p class="project-card__description">
+                            @item.MyProjectSmallDescription
+                        </p>
+                        <ul class="tags">
+                            <li> <button asp-controller="Home" asp-action="Open_Modal_For_Long_Description" data-toggle="modal" data-target="#portfolioModal" class="section_btn site-btn " id="GetMyProject" value="@item.MyProjectsId">İncele</button></li>
+                        </ul>
+                        <a href="@item.MyProjectLink" class="project-card__link">@item.MyProjectLink</a>
+                    </div>
+                </div>
+            </div>
+
+        }
+
+        <div class="modal fade portfolio-modal" id="portfolioModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body col-md-11 col-lg-9 ml-auto mr-auto">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+else
+{
+    <div class="text-danger"><h3 style="text-align:center">DB connection Fail Or Data's is Null</h3></div>
+}
+
+@section Scripts
+{
+    <script>
+        $(function () {
+            $("#GetMyProject").click(function () {
+                var form = $(this)
+                var value = form.attr("value");
+                $.ajax({
+                    url: form.attr("formaction") + "/" + value,
+                    type: "POST",
+                    contentType: "application/json",
+                    data: { id: value },
+                    beforeSend: function () {
+                        $("#portfolioModal").modal("hide");
+                    },
+                    complete: function () {
+                    },
+                    success: function (data) {
+                        $(".modal-body").html(data);
+                        $("#portfolioModal").modal("show");
+                    }
+                });
+            });
+        })
+
+    </script>
+}

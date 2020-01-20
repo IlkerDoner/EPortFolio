@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SpirIT 2.0</title>
+    <link rel="stylesheet" href="~/template/assets/css/color.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Inconsolata" rel="stylesheet">
+    <link href="../../cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="menu">
+        <div class="container">
+            <div class="row">
+                <div class="menu__wrapper d-none d-lg-block col-md-12">
+                    <nav class="">
+                        <ul>
+                            <li><a href="#hello">Hello</a></li>
+                            <li><a href="#resume">Resume</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li class="btn pull-right"><a href="Admin">SignUp</a></li>
+
+                        </ul>
+                    </nav>
+                </div>
+                <div class="menu__wrapper col-md-12 d-lg-none">
+                    <button type="button" class="menu__mobile-button">
+                        <span><i class="fa fa-bars" aria-hidden="true"></i></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mobile-menu d-lg-none">
+        <div class="container">
+            <div class="mobile-menu__close">
+                <span><i class="mdi mdi-close" aria-hidden="true"></i></span>
+            </div>
+            <nav class="mobile-menu__wrapper">
+                <ul>
+                    <li><a href="#hello">Hello</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#testimonials">testimonials</a></li>
+                    <li><a href="#blog">blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    @RenderBody()
+
+
+
+    <script src="~/template/assets/js/jquery.min.js"></script>
+    <script src="~/template/assets/js/popper.min.js"></script>
+    <script src="~/template/assets/js/bootstrap.min.js"></script>
+    <script src="~/template/assets/js/menu.js"></script>
+    <script src="~/template/assets/js/jquery.waypoints.js"></script>
+    <script src="~/template/assets/js/progress-list.js"></script>
+    <script src="~/template/assets/js/section.js"></script>
+    <script src="~/template/assets/js/portfolio-filter.js"></script>
+    <script src="~/template/assets/js/slider-carousel.js"></script>
+    <script src="~/template/assets/js/mobile-menu.js"></script>
+    <script src="~/template/assets/js/contacts.js"></script>
+    <script src="~/template/assets/js/mbclicker.min.js"></script>
+    <script src="~/template/assets/js/site-btn.js"></script>
+    <script src="~/template/assets/js/style-switcher.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139591409-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-139591409-1');
+    </script>
+    @RenderSection("Scripts", required: false)
+
+</body>
+
+</html>

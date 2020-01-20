@@ -1,0 +1,131 @@
+﻿@model MainPersonelContextModel
+@{
+    ViewData["Title"] = "MainDescriptionForPersonelView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model != null)
+{
+    <header class="main-header" style="background-image: url(~/template/assets/img/img_bg_header.jpg)">
+        <div class="container">
+            <div class="row personal-profile">
+                <div class="col-md-4 personal-profile__avatar">
+                    <img class="" src="/images/@Model.PersonImage" alt="avatar">
+                </div>
+                <div class="col-md-8">
+                    <p class="personal-profile__name">@Model.PersonName</p>
+                    <p class="personal-profile__work">@Model.PersonWorkInstructure</p>
+                    <div class="personal-profile__contacts">
+                        <dl class="contact-list contact-list__opacity-titles">
+                            <dt>Age:</dt>
+                            <dd>@Model.Age</dd>
+                            <dt>Phone:</dt>
+                            <dd>@Model.PhoneNumber</dd>
+                            <dt>Email:</dt>
+                            <dd><a href="@Model.Email">@Model.Email</a></dd>
+                            <dt>Address:</dt>
+                            <dd>@Model.Adress</dd>
+                        </dl>
+                    </div>
+                    <p class="personal-profile__social">
+                        <a href="@Model.GithubLink" target="_blank"><i class="fa fa-github"></i></a>
+                        <a href="@Model.LinkedikLink" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="hello" class="container section">
+        <div class="row">
+            <div class="col-md-10">
+                <h2 id="hello_header" class="section__title" style="text-indent: 0px;">@Model.HelloHeaderDescription+"_"</h2>
+                <p class="section__description">
+                    @Model.HelloSectionDescription
+                </p>
+                <a href="#" class="section_btn site-btn"><img src="/assets/img/img_btn_icon.png" alt="">Download CV</a>
+            </div>
+        </div>
+
+        <hr> <br>
+
+        <div class="row">
+            <div class="col-md-10">
+                <h2 id="resume_header" class="section__title">@Model.ResumeHeaderDescription +"_"</h2>
+                <p class="section__description">
+                    @Model.ResumeSectionDescription
+                </p>
+            </div>
+        </div>
+    </section>
+}
+else
+{
+    <div class="text-danger"><h3 style="text-align:center">DB connection Fail Or Data's is Null</h3></div>
+}
+
+
+
+
+@*@if (Model != null)
+    {
+        @foreach (var @item in Model)
+        {
+            <header class="main-header" style="background-image: url(~/template/assets/img/img_bg_header.jpg)">
+                <div class="container">
+                    <div class="row personal-profile">
+                        <div class="col-md-4 personal-profile__avatar">
+                            <img class="" src="~/template/assets/img/@item.PersonImage" alt="avatar">
+                        </div>
+                        <div class="col-md-8">
+                            <p class="personal-profile__name">@item.PersonName</p>
+                            <p class="personal-profile__work">@item.PersonWorkInstructure</p>
+                            <div class="personal-profile__contacts">
+                                <dl class="contact-list contact-list__opacity-titles">
+                                    <dt>Age:</dt>
+                                    <dd>@item.Age</dd>
+                                    <dt>Phone:</dt>
+                                    <dd>@item.PhoneNumber</dd>
+                                    <dt>Email:</dt>
+                                    <dd><a href="@item.Email">@item.Email</a></dd>
+                                    <dt>Address:</dt>
+                                    <dd>@item.Adress</dd>
+                                </dl>
+                            </div>
+                            <p class="personal-profile__social">
+                                <a href="@item.GithubLink" target="_blank"><i class="fa fa-github"></i></a>
+                                <a href="@item.LinkedikLink" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <section id="hello" class="container section">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h2 id="hello_header" class="section__title" style="text-indent: 0px;">@item.HelloHeaderDescription+"_"</h2>
+                        <p class="section__description">
+                            @item.HelloSectionDescription
+                        </p>
+                        <a href="#" class="section_btn site-btn"><img src="/assets/img/img_btn_icon.png" alt="">Download CV</a>
+                    </div>
+                </div>
+
+                <hr> <br>
+
+                <div class="row">
+                    <div class="col-md-10">
+                        <h2 id="resume_header" class="section__title">@item.ResumeHeaderDescription +"_"</h2>
+                        <p class="section__description">
+                            @item.ResumeSectionDescription
+                        </p>
+                    </div>
+                </div>
+            </section>
+        }
+
+
+    }
+    else
+    {
+        <div><h5>Db connection Fail</h5></div>
+    }*@

@@ -1,0 +1,28 @@
+﻿@model EducationContextModel
+@{
+    ViewData["Title"] = "Education";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+    <form asp-controller="Admin" asp-action="Education">
+        <div class="text-danger" asp-validation-summary="All"></div>
+
+        <div class="form-group">
+            <label asp-for="GraduateSchoolName"></label>
+            <input asp-for="GraduateSchoolName" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="GraduateDepartment"></label>
+            <input asp-for="GraduateDepartment" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="GraduateDate" ></label>
+            <input asp-for="GraduateDate" type="date" asp-format="{0:yyyy-MM-dd} class="form-control" />
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="save" />
+    </form>
+
+2 ) Entity de Graduate and school Start date i gir yada orayı string haline getir split edersin

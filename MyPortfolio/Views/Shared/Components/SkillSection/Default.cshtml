@@ -1,0 +1,35 @@
+﻿@model IEnumerable<GeneralSkillsModel>
+@{
+    ViewData["Title"] = "Default";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Model != null)
+{
+    <section id="resume" class="container">
+        <div class="row section__resume progress-list js-progress-list">
+            <div class="col-md-12">
+                <h3 class="progress-list__title">general skills</h3>
+            </div>
+
+            @foreach (var item in Model)
+            {
+                <div class="progress-list__skill col-md-3">
+                    <p>
+                        <span class="progress-list__skill-title">@item.GeneralSkillsName</span>
+                        <span class="progress-list__skill-value">@item.GeneralSkillsPercentage</span>
+                    </p>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="@item.GeneralSkillsPercentage" aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+}
+else
+{
+    <div class="text-danger"><h3 style="text-align:center">DB connection Fail Or Data's is Null</h3></div>
+}
+
+
